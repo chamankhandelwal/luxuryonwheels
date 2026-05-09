@@ -48,12 +48,14 @@ JWT_EXPIRES_IN=7d
 ADMIN_EMAIL=admin@luxuryonwheels.in
 ADMIN_PASSWORD=Admin@12345
 CLIENT_URL=http://localhost:5173
+SEED_ON_EMPTY=false
 ```
 
 ## Production Notes
 
 - Replace the demo admin password.
 - Configure a managed MongoDB URI.
+- Set `SEED_ON_EMPTY=true` only when you want an empty production database to auto-load the sample inventory on backend startup.
 - Swap local/remote placeholder images with Cloudinary URLs when real inventory images are available.
 - Put the real uploaded brand logo at `frontend/public/logo.svg` if you want to replace the included wheel mark.
 - Deploy frontend and backend separately, setting `VITE_API_URL` for the frontend.
