@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+const productionApiUrl = 'https://luxuryonwheels.onrender.com/api';
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || '/api'
+  baseURL: import.meta.env.VITE_API_URL || (import.meta.env.PROD ? productionApiUrl : '/api')
 });
 
 api.interceptors.request.use((config) => {
