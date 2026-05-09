@@ -1,0 +1,20 @@
+{
+  "name": "luxury-on-wheels-mern",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run server --workspace backend\" \"npm run dev --workspace frontend\"",
+    "install:all": "npm install --workspaces",
+    "server": "npm run server --workspace backend",
+    "client": "npm run dev --workspace frontend",
+    "seed": "npm run seed --workspace backend",
+    "build": "npm run build --workspace frontend"
+  },
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

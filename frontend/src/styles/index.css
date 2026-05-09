@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  background: #050506;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #050506;
+  color: #f8fafc;
+  font-family: Inter, ui-sans-serif, system-ui;
+}
+
+body::selection {
+  background: rgba(139, 92, 246, 0.55);
+}
+
+.glass {
+  border: 1px solid rgba(200, 205, 214, 0.12);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.36);
+  backdrop-filter: blur(18px);
+}
+
+.speed-lines {
+  background-image: linear-gradient(105deg, transparent 0 26%, rgba(139, 92, 246, 0.22) 27%, transparent 31%, transparent 62%, rgba(232, 216, 176, 0.13) 63%, transparent 67%);
+  background-size: 260% 100%;
+  animation: speedSweep 7s linear infinite;
+}
+
+.metal-text {
+  background: linear-gradient(90deg, #ffffff, #c8cdd6 34%, #8b5cf6 68%, #e8d8b0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes speedSweep {
+  from {
+    background-position: 120% 0;
+  }
+  to {
+    background-position: -120% 0;
+  }
+}
+
+@keyframes spinWheel {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.wheel-spin {
+  animation: spinWheel 1.2s linear infinite;
+}
+
+.container-pad {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-purpleNeon px-6 py-3 text-sm font-bold text-white shadow-glow transition hover:-translate-y-0.5 hover:bg-violet-500 focus:outline-none focus:ring-2 focus:ring-purpleNeon focus:ring-offset-2 focus:ring-offset-carbon;
+}
+
+.btn-ghost {
+  @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-6 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:border-purpleNeon hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-purpleNeon focus:ring-offset-2 focus:ring-offset-carbon;
+}
+
+.input-lux {
+  @apply w-full rounded-2xl border border-white/10 bg-white/[0.06] px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-500 focus:border-purpleNeon focus:ring-2 focus:ring-purpleNeon/30;
+}
