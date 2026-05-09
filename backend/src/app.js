@@ -16,7 +16,20 @@ const app = express();
 app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }));
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || 'http://localhost:5173',
+    origin: (origin, callback) => {
+      const allowedOrigins = [
+        'http://localhost:5173',
+        'http://127.0.0.1:5173',
+        process.env.CLIENT_URL
+      ].filter(Boolean);
+
+      const isAllowed =
+        !origin ||
+        allowedOrigins.includes(origin) ||
+        /^https:\/\/[a-z0-9-]+\.vercel\.app$/i.test(origin);
+
+      callback(isAllowed ? null : new Error(`CORS blocked for origin: ${origin}`), isAllowed);
+    },
     credentials: true
   })
 );
